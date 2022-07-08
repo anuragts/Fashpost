@@ -25,7 +25,7 @@ function Header() {
       {user ? (
         <>
         <button className="float-right   bg-pink text-white px-8 py-3" onClick={onLogout}>
-          Logout
+          logout
         </button>
            <Link to="/events" className="float-right mx-12 my-3">
            events
