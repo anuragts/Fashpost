@@ -11,6 +11,13 @@ module.exports = {
       colors: {
         'pink': '#F7B2AD',
       },
+      margin: {
+        '9rem': '9rem',
+      },
+      spacing: {
+        '558': '558px',
+        '15rem': '15rem',
+      },
       screens: {
         sm: "450px",
 

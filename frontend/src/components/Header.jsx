@@ -18,21 +18,29 @@ function Header() {
   return (
     <header className="flex flex-row text-3xl ">
       <div className="w-screen">
-        <Link to="/" className="float-left mr-5 my-5 ">
+        <Link to="/" className="float-left mr-5 my-3 text-4xl ">
           <span className="text-pink">Fash</span>Post
         </Link>
 
       {user ? (
-        <button className="float-right" onClick={onLogout}>
+        <>
+        <button className="float-right   bg-pink text-white px-8 py-3" onClick={onLogout}>
           Logout
         </button>
+           <Link to="/events" className="float-right mx-12 my-3">
+           events
+         </Link>
+         <Link to="/login" className="float-right   bg-pink text-white px-8 py-3">
+            create
+          </Link>
+         </>
       ) : (
         <>
-          <Link to="/login" className="float-right   bg-pink text-white px-9 py-5">
+          <Link to="/login" className="float-right   bg-pink text-white px-8 py-3">
             login
           </Link>
 
-          <Link to="/register" className="float-right mx-5 my-5">
+          <Link to="/register" className="float-right mx-5 my-3">
             register
           </Link>
         </>
