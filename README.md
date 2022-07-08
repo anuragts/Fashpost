@@ -15,7 +15,7 @@
     npm run client
 #
 Running only client(frontend) will throw some errors due to the absence of backend function and database connectivity.
-
+#
 # Adding environment variables
 
 Create .env file and add the following environment variables to it.
