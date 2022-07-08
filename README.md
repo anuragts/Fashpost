@@ -13,11 +13,12 @@
 
 # Running Frontend  
     npm run client
-Running only client(frontend) will throw some errors due to absence of backend function and database connectivity.
+#
+Running only client(frontend) will throw some errors due to the absence of backend function and database connectivity.
 
 # Adding environment variables
 
-Create .env file and add following environment variables in it.
+Create .env file and add the following environment variables to it.
     
     NODE_ENV , PORT , MONGO_URI , JWT_SECRET
 #
