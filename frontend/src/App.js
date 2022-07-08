@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className="container font-custom">
+        <div className="container font-custom w-full">
           <Header />
           <Routes>
             <Route path="/" element={<Dashboard />} />

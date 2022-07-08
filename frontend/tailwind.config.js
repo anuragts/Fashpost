@@ -8,6 +8,9 @@ module.exports = {
       fontFamily:{
         'custom':['Source Sans Pro', 'sans-serif'],
       },
+      colors: {
+        'pink': '#F7B2AD',
+      },
       screens: {
         sm: "450px",
 
