@@ -1,4 +1,4 @@
-# Mern auth template
+# Fashpost
 
 # Installing Dep
     npm i
@@ -11,8 +11,9 @@
 # Running Backend
     npm run server
 
-# Running Frontend 
+# Running Frontend  
     npm run client
+Running only client(frontend) will throw some errors due to absence of backend function and database connectivity.
 
 # Adding environment variables
 
