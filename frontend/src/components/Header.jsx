@@ -29,7 +29,7 @@ function Header() {
            <Link to="/events" className="float-right mx-12 my-3">
            events
          </Link>
-         <Link to="/login" className="float-right   bg-pink text-white px-8 py-3">
+         <Link to="/create" className="float-right   bg-pink text-white px-8 py-3">
             create
           </Link>
          </>

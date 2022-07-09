@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Header from "./components/Header";
 import { Home } from "./pages/Home";
 import { Events } from "./pages/Events";
+import { Create } from "./pages/Create";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/create" element={<Create />} />
             <Route path="/events" element={<Events />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
