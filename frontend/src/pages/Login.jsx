@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { FaSignInAlt } from "react-icons/fa";
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import {toast} from 'react-toastify';
@@ -60,39 +59,36 @@ function Login() {
 
   return (
     <>
-      <section className="heading">
-        <h1>
-          <FaSignInAlt /> Login
-        </h1>
-        <p>Please login account</p>
+      <section className="flex flex-col justify-center items-center text-5xl font-light mb-5 mt-[30px]">
+        <p>Login</p>
       </section>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="flex flex-col justify-center items-center mt-10">
    
-        <div className="form-group">
+        <div className="mb-5 mt-2">
           <input
             type="email"
-            className="form-control"
+            className="w-full text-3xl	border-2 border-black px-[10vw] py-4 text-center 	border-solid"
             id="email"
             name="email"
             value={email}
-            placeholder="Enter your email"
+            placeholder="email"
             onChange={onChange}
           />
         </div>
-        <div className="form-group">
+        <div className="my-5">
           <input
             type="password"
-            className="form-control"
+            className="w-full text-3xl	border-2 border-black px-[10vw] py-4 text-center 	border-solid"
             id="password"
             name="password"
             value={password}
-            placeholder="Enter your password"
+            placeholder="password"
             onChange={onChange}
           />
         </div>
     
-        <div className="form-group">
-          <button type="submit" className="btn btn-block">
+        <div className="my-5">
+          <button type="submit" className="bg-pink text-white text-3xl px-20 py-5 rounded-full font-semibold">
             {" "}
             Submit{" "}
           </button>
