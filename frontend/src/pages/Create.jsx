@@ -1,6 +1,24 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
 
 export const Create = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    location: "",
+    url:"",
+    website:"",
+    date:"",
+  });
+  const {  name, location, url, website, date  } = formData;
+
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))};
+
+
   return (
     <>
     <section className="flex flex-col justify-center items-center text-5xl font-light mb-5 mt-[30px]">
@@ -16,9 +34,9 @@ export const Create = () => {
           className="w-full text-3xl	border-2 border-black px-[10vw] py-4 text-center 	border-solid"
           id="name"
           name="name"
-          value={''}
+          value={name}
           placeholder="name"
-          onChange={''}
+          onChange={onChange}
         />
       </div>
       <div className="my-5">
@@ -27,9 +45,9 @@ export const Create = () => {
           className="w-full text-3xl	border-2 border-black px-[10vw] py-4 text-center 	border-solid"
           id="location"
           name="location"
-          value={''}
+          value={location}
           placeholder="location"
-          onChange={''}
+          onChange={onChange}
         />
       </div>
       <div className="my-5">
@@ -38,9 +56,9 @@ export const Create = () => {
           className="w-full text-3xl	border-2 border-black px-[10vw] py-4 text-center 	border-solid"
           id="url"
           name="url"
-          value={''}
+          value={url}
           placeholder="image url"
-          onChange={''}
+          onChange={onChange}
         />
       </div>
       <div className="my-5">
@@ -49,9 +67,9 @@ export const Create = () => {
           className="w-full text-3xl	border-2 border-black px-[10vw] py-4 text-center 	border-solid"
           id="website"
           name="website"
-          value={''}
+          value={website}
           placeholder="website"
-          onChange={''}
+          onChange={onChange}
         />
       </div>
       <div className="my-5">
@@ -60,9 +78,9 @@ export const Create = () => {
           className="w-full text-3xl	border-2 border-black px-[14vw] py-4 text-center 	border-solid"
           id="date"
           name="date"
-          value={''}
+          value={date}
           placeholder="date"
-          onChange={''}
+          onChange={onChange}
         />
       </div>
       <div className="my-5">
@@ -73,5 +91,4 @@ export const Create = () => {
       </div>
     </form>
   </>
-  )
-}
+  )}
