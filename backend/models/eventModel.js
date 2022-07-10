@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const goalSchema = mongoose.Schema(
+const eventSchema = mongoose.Schema(
   {
     user:{
         type: mongoose.Schema.Types.ObjectId,
@@ -23,14 +23,14 @@ const goalSchema = mongoose.Schema(
       type: String,
       required: [true, "Please add website value"],
     },
-    date: {
-      type: Date,
-      required: [true, "Please add date value"],
-    },
+    // date: {
+    //   type: Date,
+    //   required: [true, "Please add date value"],
+    // },
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model('Goal',goalSchema)
+module.exports = mongoose.model('Event',eventSchema)
