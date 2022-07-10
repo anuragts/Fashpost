@@ -90,11 +90,11 @@ const updateEvent = asyncHandler(async (req,res)=>{
 // @access Private
 
 const deleteEvent = asyncHandler(async (req,res) => {
-    const event = await event.findById(req.params.id)
+    const event = await Event.findById(req.params.id)
 
     if(!event){
         res.status(400)
-        throw new Error('event Not Found')
+        throw new Error('Event Not Found')
     }
 
     const user = await User.findById(req.user.id)
