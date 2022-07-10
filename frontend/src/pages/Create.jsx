@@ -1,5 +1,8 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import {useDispatch } from "react-redux";
+import { createEvent } from "../features/event/eventSlice";
+
 
 
 export const Create = () => {
@@ -12,11 +15,22 @@ export const Create = () => {
   });
   const {  name, location, url, website, date  } = formData;
 
+
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }))};
+
+const dispatch = useDispatch();
+
+  const onSubmit= (e) =>{
+    e.preventDefault()
+
+    dispatch(createEvent({name, location, url, website, date}))
+    setFormData('')
+
+  }
 
 
   return (
@@ -25,7 +39,7 @@ export const Create = () => {
       <p>Create an Event </p>
     </section>
     <form
-      onSubmit={''}
+      onSubmit={onSubmit}
       className="flex flex-col justify-center items-center mt-10"
     >
       <div className="mb-5 mt-2">
@@ -72,7 +86,7 @@ export const Create = () => {
           onChange={onChange}
         />
       </div>
-      <div className="my-5">
+      {/* <div className="my-5">
         <input
           type="date"
           className="w-full text-3xl	border-2 border-black px-[14vw] py-4 text-center 	border-solid"
@@ -82,7 +96,7 @@ export const Create = () => {
           placeholder="date"
           onChange={onChange}
         />
-      </div>
+      </div> */}
       <div className="my-5">
         <button type="submit" className="bg-pink text-white text-3xl px-20 py-5 rounded-full font-semibold">
           {" "}
