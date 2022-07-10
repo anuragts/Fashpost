@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import { Home } from "./pages/Home";
 import { Events } from "./pages/Events";
 import { Create } from "./pages/Create";
+import Spinner from "./components/Spinner";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/spinner" element={<Spinner/>} />
           </Routes>
         </div>
       </Router>

@@ -2,7 +2,7 @@ import React from 'react'
 
 function Spinner() {
   return (
-    <div className='loadingSpinnerContainer'>
+    <div className='fixed flex inset-0 z-50	justify-center items-center bg-bl'>
         <div className="loadingSpinner"></div>
     </div>
   )

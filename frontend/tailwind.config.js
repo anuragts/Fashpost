@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         'pink': '#F7B2AD',
+        'bl':'rgba(0, 0, 0, 0.5)',
       },
       margin: {
         '9rem': '9rem',
