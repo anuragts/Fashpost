@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteEvent } from '../features/event/eventSlice'
 
-export const eventItem = ({event}) => {
+export const EventItem = ({event}) => {
   const dispatch = useDispatch()
     return (
     <>
@@ -16,7 +16,7 @@ export const eventItem = ({event}) => {
             <p>{event.location}</p>
             <p>{event.date}</p>
             <p>{event.website}</p>
-            <button onClick={() => dispatch(deleteGoal(goal._id))} className="close">
+            <button onClick={() => dispatch(deleteEvent(event._id))} className="close">
         X
       </button>
         </div>
