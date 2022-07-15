@@ -16,7 +16,7 @@ const createEvent = async (eventData,token) => {
 
 // Get all events
 
-const getAllEvents = async (token) => {
+const getEvents = async (token) => {
     const config = {
         headers:{
             Authorization: `Bearer ${token}`
@@ -40,7 +40,7 @@ const deleteEvent = async (eventId,token) => {
 
 const eventService = {
     createEvent,
-    getAllEvents,
+    getEvents,
     deleteEvent
 }
 
