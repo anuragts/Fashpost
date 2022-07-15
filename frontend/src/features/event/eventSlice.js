@@ -16,7 +16,8 @@ export const createEvent = createAsyncThunk(
   "event/create",
   async (eventData, thunkAPI ) => {
     try {
-     return await eventService.createEvent(eventData);
+    const token = thunkAPI.getState().auth.user.token
+     return await eventService.createEvent(eventData,token);
     } catch (error) {
         const message =(error.response && error.response.data && error.response.data.message) || error.message || error.toString();
         return thunkAPI.rejectWithValue(message)
@@ -24,11 +25,12 @@ export const createEvent = createAsyncThunk(
   }
 );
 
-// Get all events
+// Get all events 
 
 export const getAllEvents = createAsyncThunk("event/getAll", async (_,thunkAPI) => {
   try {
-    return await eventService.getAllEvents();
+    const token = thunkAPI.getState().auth.user.token
+    return await eventService.getAllEvents(token);
   } catch (error) {
     const message =(error.response && error.response.data && error.response.data.message) || error.message || error.toString();
     return thunkAPI.rejectWithValue(message)
@@ -39,7 +41,8 @@ export const getAllEvents = createAsyncThunk("event/getAll", async (_,thunkAPI) 
 
 export const deleteEvent = createAsyncThunk("event/delete", async (id,thunkAPI) => {
   try {
-   return await eventService.deleteEvent(id);
+    const token = thunkAPI.getState().auth.user.token
+   return await eventService.deleteEvent(id,token);
   } catch (error) {
     const message =(error.response && error.response.data && error.response.data.message) || error.message || error.toString();
     return thunkAPI.rejectWithValue(message)
@@ -89,7 +92,7 @@ export const eventSlice = createSlice({
         state.isSuccess = true
         state.message = "Event deleted successfully";
         state.events = state.events.filter(
-          (event) => event.id !== action.payload
+          (event) => event.id !== action.payload.id
         )
       })
       .addCase(deleteEvent.rejected, (state, action) => {

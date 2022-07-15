@@ -4,22 +4,37 @@ const API_URL = 'api/events/';
 
 // Create a new event
 
-const createEvent = async (eventData) => {
-    const response = await axios.post(API_URL, eventData);
+const createEvent = async (eventData,token) => {
+    const config = {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await axios.post(API_URL, eventData,config);
     return response.data;
 }
 
 // Get all events
 
-const getAllEvents = async () => {
-    const response = await axios.get(API_URL);
+const getAllEvents = async (token) => {
+    const config = {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await axios.get(API_URL,config);
     return response.data;
 }
 
 // Delete an event
 
-const deleteEvent = async (eventId) => {
-    const response = await axios.delete(API_URL + eventId);
+const deleteEvent = async (eventId,token) => {
+    const config = {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const response = await axios.delete(API_URL + eventId, config);
     return response.data;
 }
 

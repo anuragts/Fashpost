@@ -65,17 +65,17 @@ const updateEvent = asyncHandler(async (req,res)=>{
         throw new Error('event Not Found')
     }
 
-    // const user = await User.findById(req.user.id)
+    const user = await User.findById(req.user.id)
 
-    // if(!user){
-    //     res.status(401)
-    //     throw new Error('User not found')
-    // }
+    if(!user){
+        res.status(401)
+        throw new Error('User not found')
+    }
 
-    // if (event.user.toString() !== user.id){
-    //     res.status(401)
-    //     throw new Error('User not authorized')
-    // }
+    if (event.user.toString() !== user.id){
+        res.status(401)
+        throw new Error('User not authorized')
+    }
 
     const updatedevent = await Event.findByIdAndUpdate(req.params.id, req.body,  {
         new:true,
@@ -96,17 +96,17 @@ const deleteEvent = asyncHandler(async (req,res) => {
         throw new Error('Event Not Found')
     }
 
-    // const user = await User.findById(req.user.id)
+    const user = await User.findById(req.user.id)
 
-    // if(!user){
-    //     res.status(401)
-    //     throw new Error('User not found')
-    // }
+    if(!user){
+        res.status(401)
+        throw new Error('User not found')
+    }
 
-    // if (event.user.toString() !== user.id){
-    //     res.status(401)
-    //     throw new Error('User not authorized')
-    // }
+    if (event.user.toString() !== user.id){
+        res.status(401)
+        throw new Error('User not authorized')
+    }
 
     await event.remove()
 
