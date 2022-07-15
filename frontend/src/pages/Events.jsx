@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect } from 'react';
-// import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import {useSelector , useDispatch} from 'react-redux'
 import Spinner from '../components/Spinner'
 import {getAllEvents,reset} from '../features/event/eventSlice'
@@ -8,42 +8,57 @@ import {EventItem} from '../components/EventItem'
 
 
 export const Events = () => {
-
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const {events,isLoading ,isError,message} = useSelector((state) => state.event)
+  const {user} = useSelector((state)=> state.auth)
 
-  useEffect(() => {
+
+  // Get events state from events slice
+  const {events, isLoading, isError , message} = useSelector((state) => state.events )
+
+
+  
+  useEffect (() =>{
     if(isError){
       console.log(message);
     }
-
+    if (!user){
+      navigate('/login')
+    }
     dispatch(getAllEvents())
 
-    return () => {
-      dispatch(reset())
-    }
-  },[isError,message,dispatch])
+    return () =>{
 
+      dispatch(reset())
+
+    }
+
+  },[user, navigate, isError, message, dispatch])
+  // If events are loading, show the spinner
   if (isLoading) {
     return <Spinner />
   }
-  
+
+  // If there are no events, show a message
+  if (events.length === 0) {
+    return <p>No events found</p>
+  }
+
+  // If there are events, show them
   return (
-    <> 
-    <div> Events </div>
-
-    <section>
-    {events.length>0?(
-      <div>
-        {events.map((event )=> (
-          <EventItem key={event._id} event={event}/>
-       ) )}
+    <section className='content'>
+    {events.length > 0 ? (
+      <div className='events'>
+        {events.map((event) => (
+          <EventItem key={event._id} event={event} />
+        ))}
       </div>
-  ):( <h3>Currenty there is no events.</h3> )}
-    </section>
-
-    </>
+    ):( <h3>You have not set any events</h3> )}
+  </section>
   )
 }
+
+
+
+

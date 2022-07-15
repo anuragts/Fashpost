@@ -156,6 +156,47 @@
       "updated": 1657539603947,
       "link": null,
       "locked": false
+    },
+    {
+      "id": "TU4SV-ZtJEf9m66tC_2LD",
+      "type": "line",
+      "x": 605.3000793457031,
+      "y": 53.699981689453125,
+      "width": 282.4000244140625,
+      "height": 1,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "strokeSharpness": "round",
+      "seed": 577855897,
+      "version": 41,
+      "versionNonce": 1521098487,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1657880088329,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          282.4000244140625,
+          -1
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": null,
+      "endBinding": null,
+      "startArrowhead": null,
+      "endArrowhead": null
     }
   ],
   "appState": {

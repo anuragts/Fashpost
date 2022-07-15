@@ -6,29 +6,32 @@ import { createEvent } from "../features/event/eventSlice";
 
 
 export const Create = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    location: "",
-    url:"",
-    website:"",
-    date:"",
-  });
-  const {  name, location, url, website, date  } = formData;
+  const dispatch = useDispatch();
+  const [text, setText] = useState("")
+  const [location,setLocation] = useState("")
+  const [imageurl,setUrl] = useState("")
+  const [website,setWebsite] = useState("")
 
 
-  const onChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }))};
+  // const {  text, location, imageurl, website, date  } = text;
 
-const dispatch = useDispatch();
+
+  // const onChange = (e) => {
+  //   setFormData((prevState) => ({
+  //     ...prevState,
+  //     [e.target.text]: e.target.value,
+  //   }))};
+
 
   const onSubmit= (e) =>{
     e.preventDefault()
 
-    dispatch(createEvent({name, location, url, website, date}))
-    setFormData('')
+    dispatch(createEvent({text, location, imageurl, website}))
+    setText('')
+    setLocation('')
+    setUrl('')
+    setWebsite('')
+
 
   }
 
@@ -48,9 +51,9 @@ const dispatch = useDispatch();
           className="w-full text-3xl	border-2 border-black px-[10vw] py-4 text-center 	border-solid"
           id="name"
           name="name"
-          value={name}
+          value={text}
           placeholder="name"
-          onChange={onChange}
+          onChange={(e) => setText(e.target.value)}
         />
       </div>
       <div className="my-5">
@@ -61,18 +64,18 @@ const dispatch = useDispatch();
           name="location"
           value={location}
           placeholder="location"
-          onChange={onChange}
+          onChange={(e) => setLocation(e.target.value)}
         />
       </div>
       <div className="my-5">
         <input
-          type="url"
+          type="imageurl"
           className="w-full text-3xl	border-2 border-black px-[10vw] py-4 text-center 	border-solid"
-          id="url"
-          name="url"
-          value={url}
+          id="imageurl"
+          name="imageurl"
+          value={imageurl}
           placeholder="image url"
-          onChange={onChange}
+          onChange={(e) => setUrl(e.target.value)}
         />
       </div>
       <div className="my-5">
@@ -83,7 +86,7 @@ const dispatch = useDispatch();
           name="website"
           value={website}
           placeholder="website"
-          onChange={onChange}
+          onChange={(e) => setWebsite(e.target.value)}
         />
       </div>
       {/* <div className="my-5">
@@ -94,7 +97,7 @@ const dispatch = useDispatch();
           name="date"
           value={date}
           placeholder="date"
-          onChange={onChange}
+          onChange={(e) => setText(e.target.value)}
         />
       </div> */}
       <div className="my-5">
