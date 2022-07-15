@@ -13,7 +13,7 @@ const initialState = {
 // Create an event
 
 export const createEvent = createAsyncThunk(
-  "event/create",
+  "events/create",
   async (eventData, thunkAPI ) => {
     try {
     const token = thunkAPI.getState().auth.user.token
@@ -27,7 +27,7 @@ export const createEvent = createAsyncThunk(
 
 // Get all events 
 
-export const getAllEvents = createAsyncThunk("event/getAll", async (_,thunkAPI) => {
+export const getAllEvents = createAsyncThunk("events/getAll", async (_,thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token
     return await eventService.getAllEvents(token);
@@ -39,7 +39,7 @@ export const getAllEvents = createAsyncThunk("event/getAll", async (_,thunkAPI) 
 
 // Delete an event
 
-export const deleteEvent = createAsyncThunk("event/delete", async (id,thunkAPI) => {
+export const deleteEvent = createAsyncThunk("events/delete", async (id,thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token
    return await eventService.deleteEvent(id,token);
@@ -82,7 +82,7 @@ export const eventSlice = createSlice({
       .addCase(getAllEvents.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
-        state.message = action.payload
+        state.message (action.payload)  
       })
       .addCase(deleteEvent.pending, (state) => {
         state.isLoading = true

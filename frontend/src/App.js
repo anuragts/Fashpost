@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Header from "./components/Header";
 import { Home } from "./pages/Home";
-import { Events } from "./pages/Events";
+import  Events  from "./pages/Events";
 import { Create } from "./pages/Create";
 import Spinner from "./components/Spinner";
 

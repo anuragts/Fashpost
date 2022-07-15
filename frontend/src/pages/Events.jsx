@@ -7,7 +7,7 @@ import {getAllEvents,reset} from '../features/event/eventSlice'
 import {EventItem} from '../components/EventItem'
 
 
-export const Events = () => {
+function Events()  {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -15,7 +15,7 @@ export const Events = () => {
 
 
   // Get events state from events slice
-  const {events, isLoading, isError , message} = useSelector((state) => state.events )
+  const {events, isLoading, isError , message} = useSelector((state) => state.events ) || {events: [], isLoading: false, isError: false, message: ''}
 
 
   
@@ -41,12 +41,10 @@ export const Events = () => {
   }
 
   // If there are no events, show a message
-  if (events.length === 0) {
-    return <p>No events found</p>
-  }
 
   // If there are events, show them
   return (
+    <>
     <section className='content'>
     {events.length > 0 ? (
       <div className='events'>
@@ -55,10 +53,10 @@ export const Events = () => {
         ))}
       </div>
     ):( <h3>You have not set any events</h3> )}
-  </section>
+  </section></>
   )
 }
 
-
+export default Events
 
 
