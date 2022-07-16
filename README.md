@@ -1,5 +1,8 @@
 # Fashpost
 
+## Design
+
+<a href="https://www.figma.com/file/rKJxHkgXR0uDGMBGKwYDYO/fashpost?node-id=6%3A143"> Figma File </a>
 # Installing Dep
     npm i
     cd frontend
