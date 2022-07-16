@@ -5,7 +5,7 @@ import {useSelector , useDispatch} from 'react-redux'
 import Spinner from '../components/Spinner'
 import {getEvents, reset} from '../features/events/eventSlice'
 import {EventItem} from '../components/EventItem'
-// import {Create} from './Create'
+import {Link} from 'react-router-dom'
 
 
 function Events()  {
@@ -42,53 +42,13 @@ function Events()  {
           <EventItem key={event._id} event={event} />
         ))}
       </div>
-    ):( <h3>You have not set any events</h3> )}
+    ):( <> <h3 className='text-3xl font-light mt-[25vh]'>Currently no events available !!</h3>
+    <Link to="/create" className=' mt-10 text-xl	text-white bg-pink px-[40px] py-3 rounded-[39px] border-2	 border-pink hover:text-pink hover:bg-white'>Create an event</Link> </>
+    )}
       </div>
     </>
   )
 }
-
-  
-//   const {events, isLoading, isError , message} = useSelector((state) => state.events )  || {events: [], isLoading: false, isError: false, message: ''}
-
-
-  
-//   useEffect (() =>{
-//     if(isError){
-//       console.log(message);
-//     }
-//     if (!user){
-//       navigate('/login')
-//     }
-//     dispatch(getEvents())
-
-//     return () =>{
-
-//       dispatch(reset())
-
-//     }
-
-//   },[user, navigate, isError, message, dispatch])
-
-//   // If events are loading, show the spinner
-
-//   if (isLoading) {
-//     return <Spinner />
-//   }
-
-//   return (
-//     <>
-//     <section className='content'>
-//     {events.length > 0 ? (
-//       <div className='events'>
-//         {events.map((event) => (
-//           <EventItem key={event._id} event={event} />
-//         ))}
-//       </div>
-//     ):( <h3>You have not set any events</h3> )}
-//   </section></>
-//   )
-// }
 
 export default Events
 

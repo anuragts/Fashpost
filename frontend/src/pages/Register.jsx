@@ -115,7 +115,7 @@ function Register() {
           />
         </div>
         <div className="my-5">
-          <button type="submit" className="bg-pink text-white text-3xl px-20 py-5 rounded-full font-semibold">
+          <button type="submit" className="bg-pink text-white text-3xl px-20 py-5 rounded-full font-semibold border-2	 border-pink hover:text-pink hover:bg-white">
             {" "}
             Submit{" "}
           </button>

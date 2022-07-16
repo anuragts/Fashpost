@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {login , reset} from '../features/auth/authSlice';
 import Spinner from "../components/Spinner";
+import {Link} from 'react-router-dom'
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -87,8 +88,10 @@ function Login() {
           />
         </div>
     
-        <div className="my-5">
-          <button type="submit" className="bg-pink text-white text-3xl px-20 py-5 rounded-full font-semibold">
+        <Link to="/register" className=' mt-10 text-2xl	text-pink  px-[40px]   mb-2'>Create an account</Link>  <br/>
+        <div className="my-1">
+
+          <button type="submit" className="bg-pink text-white text-3xl px-20 py-5 rounded-full font-semibold border-2	 border-pink hover:text-pink hover:bg-white">
             {" "}
             Submit{" "}
           </button>
