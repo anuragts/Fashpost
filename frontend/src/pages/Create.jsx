@@ -47,6 +47,7 @@ export const Create = () => {
       <p>Create an Event </p>
     </section>
     <form
+      autocomplete="off"
       onSubmit={onSubmit}
       className="flex flex-col justify-center items-center mt-10">
       <div className="mb-5 mt-2">

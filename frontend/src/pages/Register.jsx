@@ -67,6 +67,7 @@ function Register() {
         <p>Register</p>
       </section>
       <form
+        autocomplete="off"
         onSubmit={onSubmit}
         className="flex flex-col justify-center items-center mt-10"
       >
