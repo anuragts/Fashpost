@@ -2,6 +2,12 @@ import React from "react";
 import { useState } from "react";
 import {useDispatch } from "react-redux";
 import { createEvent } from "../features/events/eventSlice";
+import {toast} from 'react-toastify';
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+
+
 
 
 
@@ -11,6 +17,14 @@ export const Create = () => {
   const [location,setLocation] = useState("")
   const [imageurl,setUrl] = useState("")
   const [website,setWebsite] = useState("")
+  
+  const {isSuccess,message} = useSelector((state)=> state.events)
+
+  useEffect(()=>{
+    if(isSuccess && message == !null) {                        
+    toast.success(message) 
+  }    }, [isSuccess])
+
 
 
   // const {  text, location, imageurl, website, date  } = text;
