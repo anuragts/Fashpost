@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import {useDispatch } from "react-redux";
-import { createEvent } from "../features/event/eventSlice";
+import { createEvent } from "../features/events/eventSlice";
 
 
 

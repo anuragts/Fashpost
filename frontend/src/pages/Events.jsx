@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom'
 import {useSelector , useDispatch} from 'react-redux'
 import Spinner from '../components/Spinner'
-import {getEvents,reset} from '../features/event/eventSlice'
+import {getEvents, reset} from '../features/events/eventSlice'
 import {EventItem} from '../components/EventItem'
 // import {Create} from './Create'
 
@@ -15,29 +15,34 @@ function Events()  {
   const {user} = useSelector((state)=> state.auth)
 
 // Show events from payload
-  const {events, isLoading} = useSelector((state)=> state.event) || {events: [], isLoading: true}
+  const {events, isLoading} = useSelector((state)=> state.events)  || {events: [], isLoading: true}
   useEffect(()=>{
+    if(!user){
+      navigate('/login')
+    }
     dispatch(getEvents())
     return ()=>{
       dispatch(reset())
     }
   }
-  ,[])
+  ,[dispatch,navigate])
   if(isLoading){
     return <Spinner/>
   }
-  if(!user){
-    navigate('/login')
-  }
+
   return (
     <>
       <section className="flex flex-col justify-center items-center text-5xl font-light mb-5 mt-[30px]">
         <p>Events </p>
       </section>
       <div className="flex flex-col justify-center items-center mt-10">
-        {events.map((event)=>(
-          <EventItem key={event._id} event={event}/>
+      {events.length > 0 ? (
+    <div className='events'>
+      {events.map((event) => (
+          <EventItem key={event._id} event={event} />
         ))}
+      </div>
+    ):( <h3>You have not set any events</h3> )}
       </div>
     </>
   )

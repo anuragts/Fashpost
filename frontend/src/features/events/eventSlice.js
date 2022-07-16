@@ -29,10 +29,10 @@ export const createEvent = createAsyncThunk(
 
 export const getEvents = createAsyncThunk("events/getAll", async (_,thunkAPI) => {
   try {
-    const token = thunkAPI.getState().auth.user.token
+    const token = thunkAPI.getState().auth.user.token;
     return await eventService.getEvents(token);
   } catch (error) {
-    const message =(error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+    const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
     return thunkAPI.rejectWithValue(message)
   }
 });
@@ -63,7 +63,7 @@ export const eventSlice = createSlice({
       .addCase(createEvent.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        state.message = "Event created successfully"
+        // state.message = "Event created successfully"
         state.events.push(action.payload)
       })
       .addCase(createEvent.rejected, (state, action) => {
@@ -82,7 +82,7 @@ export const eventSlice = createSlice({
       .addCase(getEvents.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
-        state.message (action.payload)  
+        state.message = action.payload
       })
       .addCase(deleteEvent.pending, (state) => {
         state.isLoading = true
