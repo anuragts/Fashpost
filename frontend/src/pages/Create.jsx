@@ -6,11 +6,6 @@ import {toast} from 'react-toastify';
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-
-
-
-
-
 export const Create = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState("")
@@ -21,20 +16,10 @@ export const Create = () => {
   const {isSuccess,message} = useSelector((state)=> state.events)
 
   useEffect(()=>{
-    if(isSuccess && message == !null) {                        
+    if(isSuccess && message ) {                        
     toast.success(message) 
-  }    }, [isSuccess])
+  }    }, [isSuccess,message])
 
-
-
-  // const {  text, location, imageurl, website, date  } = text;
-
-
-  // const onChange = (e) => {
-  //   setFormData((prevState) => ({
-  //     ...prevState,
-  //     [e.target.text]: e.target.value,
-  //   }))};
 
 
   const onSubmit= (e) =>{
@@ -45,11 +30,8 @@ export const Create = () => {
     setLocation('')
     setUrl('')
     setWebsite('')
-
-
   }
-
-
+  
   return (
     <>
     <section className="flex flex-col justify-center items-center text-5xl font-light mb-5 mt-[30px]">
@@ -57,8 +39,7 @@ export const Create = () => {
     </section>
     <form
       onSubmit={onSubmit}
-      className="flex flex-col justify-center items-center mt-10"
-    >
+      className="flex flex-col justify-center items-center mt-10">
       <div className="mb-5 mt-2">
         <input
           type="text"
