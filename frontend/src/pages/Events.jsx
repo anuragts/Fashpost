@@ -33,7 +33,7 @@ function Events()  {
   return (
     <>
       <section className="flex flex-col justify-center items-center text-5xl font-light mb-5 mt-[30px]">
-        <p>Events </p>
+        <p>Events</p>
       </section>
       <div className="flex flex-col justify-center items-center mt-10">
       {events.length > 0 ? (

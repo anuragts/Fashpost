@@ -37,16 +37,17 @@ const setEvent = asyncHandler(async  (req,res)=>{
         res.status(400)
         throw new Error ('Please add a website field')
     }
-    // if(!req.body.date){
-    //     res.status(400)
-    //     throw new Error ('Please add a date field')
-    // }
+    if(!req.body.date){
+        res.status(400)
+        throw new Error ('Please add a date field')
+    }
 
     const event = await Event.create({
         text : req.body.text,
         location : req.body.location,
         imageurl : req.body.imageurl,
-        website : req.body.website
+        website : req.body.website,
+        date : req.body.date
     })
     
     res.status(200).json(event)

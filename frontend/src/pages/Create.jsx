@@ -1,21 +1,29 @@
 import React from "react";
 import { useState } from "react";
-import {useDispatch } from "react-redux";
+import {useDispatch , useSelector} from "react-redux";
 import { createEvent } from "../features/events/eventSlice";
 import {toast} from 'react-toastify';
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import {useNavigate} from 'react-router-dom';
+
+
 
 export const Create = () => {
+  const navigate = useNavigate()
+  const {user} = useSelector((state)=> state.auth)
   const dispatch = useDispatch();
   const [text, setText] = useState("")
   const [location,setLocation] = useState("")
   const [imageurl,setUrl] = useState("")
   const [website,setWebsite] = useState("")
+  const [date,setDate] = useState("")
   
   const {isSuccess,message} = useSelector((state)=> state.events)
 
   useEffect(()=>{
+    if(!user){
+      navigate('/login')
+    }
     if(isSuccess && message ) {                        
     toast.success(message) 
   }    }, [isSuccess,message])
@@ -25,11 +33,12 @@ export const Create = () => {
   const onSubmit= (e) =>{
     e.preventDefault()
 
-    dispatch(createEvent({text, location, imageurl, website}))
+    dispatch(createEvent({text, location, imageurl, website , date}))
     setText('')
     setLocation('')
     setUrl('')
     setWebsite('')
+    setDate('')     
   }
   
   return (
@@ -84,7 +93,7 @@ export const Create = () => {
           onChange={(e) => setWebsite(e.target.value)}
         />
       </div>
-      {/* <div className="my-5">
+      <div className="my-5">
         <input
           type="date"
           className="w-full text-3xl	border-2 border-black px-[14vw] py-4 text-center 	border-solid"
@@ -92,9 +101,9 @@ export const Create = () => {
           name="date"
           value={date}
           placeholder="date"
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e) => setDate(e.target.value)}
         />
-      </div> */}
+      </div>
       <div className="my-5">
         <button type="submit" className="bg-pink text-white text-3xl px-20 py-5 rounded-full font-semibold">
           {" "}

@@ -18,10 +18,10 @@ const eventSchema = mongoose.Schema(
       type: String,
       required: [true, "Please add website value"],
     },
-    // date: {
-    //   type: Date,
-    //   required: [true, "Please add date value"],
-    // },
+    date: {
+      type: Date,
+      required: [true, "Please add date value"],
+    },
   },
   {
     timestamps: true,
