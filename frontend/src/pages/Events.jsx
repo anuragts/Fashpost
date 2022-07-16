@@ -37,7 +37,7 @@ function Events()  {
       </section>
       <div className="flex flex-col justify-center items-center mt-10">
       {events.length > 0 ? (
-    <div className='events'>
+    <div className='flex flex-row flex-wrap justify-between	'>
       {events.map((event) => (
           <EventItem key={event._id} event={event} />
         ))}
