@@ -26,7 +26,7 @@ export const Create = () => {
     }
     if(isSuccess && message ) {                        
     toast.success(message) 
-  }    }, [isSuccess,message])
+  }    }, [isSuccess,message,navigate,user])
 
 
 
